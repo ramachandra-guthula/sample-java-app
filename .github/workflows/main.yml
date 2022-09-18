@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Continuous Integration for sample Java app
 
 # Controls when the workflow will run
 on:
@@ -17,6 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: build java code
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -46,3 +47,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Maven build 
         run: mvn clean install 
+        
+      - name: Verify the build 
+        run: |
+          pwd
+          ls -lrt
+          
